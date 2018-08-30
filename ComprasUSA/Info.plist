@@ -20,6 +20,10 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSCameraUsageDescription</key>
+	<string>Preciso de acesso à camera para pegar a foto do produto</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Preciso de acesso a biblioteca de fotos</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

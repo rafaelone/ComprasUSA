@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14133" systemVersion="17G65" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Product" representedClassName="Product" syncable="YES" codeGenerationType="class">
+        <attribute name="cartao" optional="YES" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="image" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="money" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="estados" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="State" syncable="YES"/>
+    </entity>
+    <entity name="State" representedClassName="State" syncable="YES" codeGenerationType="class">
+        <attribute name="imposto" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="produtos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="State" inverseName="produtos" inverseEntity="State" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Product" positionX="-45" positionY="0" width="128" height="120"/>
+        <element name="State" positionX="-18" positionY="27" width="128" height="90"/>
+    </elements>
 </model>

@@ -13,6 +13,7 @@
 		D9BDEFD9213825270088DB9F /* ComprasUSA.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D9BDEFD7213825270088DB9F /* ComprasUSA.xcdatamodeld */; };
 		D9BDEFDB213825300088DB9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D9BDEFDA213825300088DB9F /* Assets.xcassets */; };
 		D9BDEFDE213825300088DB9F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9BDEFDC213825300088DB9F /* LaunchScreen.storyboard */; };
+		D9BDEFE6213829160088DB9F /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D9BDEFE5213829160088DB9F /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		D9BDEFDA213825300088DB9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D9BDEFDD213825300088DB9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D9BDEFDF213825300088DB9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D9BDEFE5213829160088DB9F /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 				D9BDEFDA213825300088DB9F /* Assets.xcassets */,
 				D9BDEFDC213825300088DB9F /* LaunchScreen.storyboard */,
 				D9BDEFDF213825300088DB9F /* Info.plist */,
+				D9BDEFE5213829160088DB9F /* Settings.bundle */,
 				D9BDEFD7213825270088DB9F /* ComprasUSA.xcdatamodeld */,
 			);
 			path = ComprasUSA;
@@ -125,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D9BDEFE6213829160088DB9F /* Settings.bundle in Resources */,
 				D9BDEFDE213825300088DB9F /* LaunchScreen.storyboard in Resources */,
 				D9BDEFDB213825300088DB9F /* Assets.xcassets in Resources */,
 				D9BDEFD6213825270088DB9F /* Main.storyboard in Resources */,
