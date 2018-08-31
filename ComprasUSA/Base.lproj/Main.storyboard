@@ -72,7 +72,7 @@
         <!--Ajustes-->
         <scene sceneID="Rjm-ak-DvC">
             <objects>
-                <viewController id="r4o-8n-Mrv" sceneMemberID="viewController">
+                <viewController id="r4o-8n-Mrv" customClass="SettingsViewController" customModule="ComprasUSA" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nOb-dG-JZ6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -153,6 +153,10 @@
                         <viewLayoutGuide key="safeArea" id="F4O-3v-wxR"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Ajustes" id="WIq-GV-z97"/>
+                    <connections>
+                        <outlet property="txDolar" destination="t61-ag-1xw" id="MHl-w6-T9s"/>
+                        <outlet property="txIof" destination="P9E-ky-r0c" id="nZQ-Oi-5Yf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xTa-J0-z6s" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -331,6 +335,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="gUJ-y2-vuo" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vas-Pq-eSb">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

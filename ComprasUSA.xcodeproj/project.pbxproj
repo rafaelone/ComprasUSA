@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D9A8A1A82139FD9E0016E444 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A8A1A72139FD9E0016E444 /* SettingsViewController.swift */; };
 		D9BDEFD1213825270088DB9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BDEFD0213825270088DB9F /* AppDelegate.swift */; };
 		D9BDEFD3213825270088DB9F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9BDEFD2213825270088DB9F /* ViewController.swift */; };
 		D9BDEFD6213825270088DB9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D9BDEFD4213825270088DB9F /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D9A8A1A72139FD9E0016E444 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D9BDEFCD213825270088DB9F /* ComprasUSA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ComprasUSA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D9BDEFD0213825270088DB9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D9BDEFD2213825270088DB9F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				D9BDEFDF213825300088DB9F /* Info.plist */,
 				D9BDEFE5213829160088DB9F /* Settings.bundle */,
 				D9BDEFD7213825270088DB9F /* ComprasUSA.xcdatamodeld */,
+				D9A8A1A72139FD9E0016E444 /* SettingsViewController.swift */,
 			);
 			path = ComprasUSA;
 			sourceTree = "<group>";
@@ -145,6 +148,7 @@
 				D9BDEFD3213825270088DB9F /* ViewController.swift in Sources */,
 				D9BDEFD9213825270088DB9F /* ComprasUSA.xcdatamodeld in Sources */,
 				D9BDEFD1213825270088DB9F /* AppDelegate.swift in Sources */,
+				D9A8A1A82139FD9E0016E444 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
