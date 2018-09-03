@@ -5,12 +5,12 @@
         <attribute name="image" optional="YES" attributeType="Transformable" syncable="YES"/>
         <attribute name="money" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="estados" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="State" syncable="YES"/>
+        <relationship name="states" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="State" inverseName="products" inverseEntity="State" syncable="YES"/>
     </entity>
     <entity name="State" representedClassName="State" syncable="YES" codeGenerationType="class">
         <attribute name="imposto" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="produtos" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="State" inverseName="produtos" inverseEntity="State" syncable="YES"/>
+        <relationship name="products" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Product" inverseName="states" inverseEntity="Product" syncable="YES"/>
     </entity>
     <elements>
         <element name="Product" positionX="-45" positionY="0" width="128" height="120"/>

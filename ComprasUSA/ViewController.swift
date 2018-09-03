@@ -10,9 +10,39 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet weak var ivProduto: UIImageView!
+    @IBOutlet weak var lbNomeProduto: UILabel!
+    @IBOutlet weak var lbValorProduto: UILabel!
+    @IBOutlet weak var lbEstadoProduto: UILabel!
+    @IBOutlet weak var lbCartao: UILabel!
+    
+      var produto: Product!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        ivProduto.image = produto.image as? UIImage
+        lbNomeProduto.text = produto.nome
+        lbValorProduto.text = "\(produto.money)"
+        lbEstadoProduto.text = produto.states?.nome
+        
+        if produto.cartao == false {
+            lbCartao.text = "Não foi comprado por cartão"
+        }else{
+            lbCartao.text = "Foi comprado por cartão"
+        }
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let vc = segue.destination as? RegistraAtualizaProdutoViewController {
+            vc.produto = produto
+        }
     }
 
     override func didReceiveMemoryWarning() {
