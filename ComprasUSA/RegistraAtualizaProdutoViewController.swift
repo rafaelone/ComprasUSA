@@ -1,3 +1,4 @@
+
 //
 //  RegistraAtualizaProdutoViewController.swift
 //  ComprasUSA
@@ -10,7 +11,7 @@ import UIKit
 import CoreData
 
 class RegistraAtualizaProdutoViewController: UIViewController {
-
+    
     @IBOutlet weak var txNome: UITextField!
     @IBOutlet weak var ivFoto: UIImageView!
     @IBOutlet weak var txEstado: UITextField!
@@ -30,7 +31,6 @@ class RegistraAtualizaProdutoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         pickerView.dataSource = self
         pickerView.delegate = self
         toolBarConfiguracao()
@@ -42,20 +42,25 @@ class RegistraAtualizaProdutoViewController: UIViewController {
             txValor.text = "\(produto.money)"
             slCartao.setOn(produto.cartao, animated: true)
             btAddEdit.setTitle("Atualizar", for: .normal)
+            txEstado.text = produto.states?.nome
+        //    estadoSelecionado = estado
+            txValor.keyboardType = UIKeyboardType.numberPad
             
-        }else{
-            produto = Product(context: context)
         }
+       /* else{
+            produto = Product(context: context)
 
+        }*/
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         carregaEstados()
-        txValor.keyboardType = UIKeyboardType.numberPad
-        txEstado.text = produto.states?.nome
+        
+        
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -73,7 +78,7 @@ class RegistraAtualizaProdutoViewController: UIViewController {
         pickerView.reloadAllComponents()
     }
     
-
+    
     @IBAction func addFoto(_ sender: UIButton) {
         
         let alert = UIAlertController(title: "Selecionar foto", message: "De onde você gostaria de selecionar a foto ?", preferredStyle: .actionSheet)
@@ -123,6 +128,7 @@ class RegistraAtualizaProdutoViewController: UIViewController {
         let estado = listaEstados[pickerView.selectedRow(inComponent: 0)]
         txEstado.text = estado.nome
         estadoSelecionado = estado
+        print(estado.imposto)
         cancel()
         
     }
@@ -132,47 +138,56 @@ class RegistraAtualizaProdutoViewController: UIViewController {
     }
     
     @IBAction func addEditProduto(_ sender: UIButton) {
-        
-        
-        guard let txtNome = txNome.text else {return}
-        guard let txDinheiro = txValor.text else {return}
-//        guard let txEstado = txEstado.text else {return}
-        let imagem = ivFoto.image
-        //        guard let imposto = Double(estado.imposto.description) else {return}
-        //      Double(ud.string(forKey: "dolar"))!
-//        produto.states
-        
-        
-//        if txtNome != "" && txDinheiro != "" && txEstado != ""{
+            print("TESTE")
+        print(estadoSelecionado)
+       
+    
+            
+            guard let txtNome = txNome.text else {return}
+            guard let txDinheiro = txValor.text else {return}
+            let impostaEstadoSelecionado = estadoSelecionado.imposto
+            let imagem = ivFoto.image
+            let dinheiro = Double(txDinheiro) ?? 0
+            
+            let acrescimoComCartao = (dinheiro * ud.double(forKey: "iof"))/100
+            let acrescimoComImpostoEstado = (dinheiro * impostaEstadoSelecionado)/100
+            
+            print("VALORES")
+            print(acrescimoComCartao)
+            print(acrescimoComImpostoEstado)
+            
+            //        if txtNome != "" && txDinheiro != "" && txEstado != ""{
             produto.nome = txtNome
             produto.image = imagem
-           produto.states = estadoSelecionado
-            //            produto.money = Double(txDinheiro)!
-        
-        print(produto.states)
-        print(produto)
+            produto.states = estadoSelecionado
             produto.cartao = slCartao.isOn
+            
             
             if slCartao.isOn {
                 
-                produto.money = Double(txDinheiro)! * ud.double(forKey: "iof")
+                produto.money = dinheiro + acrescimoComCartao + acrescimoComImpostoEstado
             }else{
-                produto.money = Double(txDinheiro)!
+                produto.money = dinheiro + acrescimoComImpostoEstado
             }
             
             do{
                 try context.save()
+                
                 navigationController?.popViewController(animated: true)
             }catch{
                 print(error.localizedDescription)
             }
             
-//        }else{
-//            lbError.text = "Todos os campos são obrigatórios"
         
-//        }
         
-    
+      
+        
+        //        }else{
+        //            lbError.text = "Todos os campos são obrigatórios"
+        
+        //        }
+        
+        
     }
     
 }
