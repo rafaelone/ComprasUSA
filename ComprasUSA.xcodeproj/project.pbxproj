@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AC56B566213F381B00FC5BCF /* TotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC56B565213F381B00FC5BCF /* TotalViewController.swift */; };
 		D9A8A1A82139FD9E0016E444 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A8A1A72139FD9E0016E444 /* SettingsViewController.swift */; };
 		D9A8A1AC213D490D0016E444 /* UIViewController+CoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A8A1AB213D490D0016E444 /* UIViewController+CoreData.swift */; };
 		D9A8A1AE213D4ACA0016E444 /* EstadoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9A8A1AD213D4ACA0016E444 /* EstadoTableViewCell.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AC56B565213F381B00FC5BCF /* TotalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalViewController.swift; sourceTree = "<group>"; };
 		D9A8A1A72139FD9E0016E444 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D9A8A1AB213D490D0016E444 /* UIViewController+CoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+CoreData.swift"; sourceTree = "<group>"; };
 		D9A8A1AD213D4ACA0016E444 /* EstadoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EstadoTableViewCell.swift; sourceTree = "<group>"; };
@@ -74,6 +76,7 @@
 				D9BDEFD0213825270088DB9F /* AppDelegate.swift */,
 				D9BDEFD2213825270088DB9F /* ViewController.swift */,
 				D9BDEFD4213825270088DB9F /* Main.storyboard */,
+				AC56B565213F381B00FC5BCF /* TotalViewController.swift */,
 				D9A8A1B1213D589C0016E444 /* ProdutosTableViewCell.swift */,
 				D9A8A1AF213D4D8D0016E444 /* ProdutosTableViewController.swift */,
 				D9BDEFDA213825300088DB9F /* Assets.xcassets */,
@@ -163,6 +166,7 @@
 				D9BDEFD3213825270088DB9F /* ViewController.swift in Sources */,
 				D9A8A1B2213D589C0016E444 /* ProdutosTableViewCell.swift in Sources */,
 				D9A8A1B6213D5C490016E444 /* RegistraAtualizaProdutoViewController.swift in Sources */,
+				AC56B566213F381B00FC5BCF /* TotalViewController.swift in Sources */,
 				D9A8A1AC213D490D0016E444 /* UIViewController+CoreData.swift in Sources */,
 				D9BDEFD9213825270088DB9F /* ComprasUSA.xcdatamodeld in Sources */,
 				D9A8A1AE213D4ACA0016E444 /* EstadoTableViewCell.swift in Sources */,
