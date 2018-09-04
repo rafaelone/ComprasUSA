@@ -143,6 +143,9 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         let cell = tbEstado.dequeueReusableCell(withIdentifier: "celula", for: indexPath) as! EstadoTableViewCell
         cell.txEstado.text = listaEstados[indexPath.row].nome
         cell.txValor.text = "\(listaEstados[indexPath.row].imposto)"
+        cell.txValor.textColor = UIColor.red
+        
+       
         return cell
     }
     
@@ -159,13 +162,9 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 print(error.localizedDescription)
             }
         }
-        let edita = UITableViewRowAction(style: .default, title: "Editar") { (action, indexPath) in
-            let estado = self.listaEstados[indexPath.row]
-            self.showAlert(estado: estado)
-            tableView.setEditing(false, animated: true)
-        }
-        edita.backgroundColor = .blue
-        return [deleta, edita]
+     
+
+        return [deleta]
     }
 
 }

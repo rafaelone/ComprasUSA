@@ -33,9 +33,12 @@ class RegistraAtualizaProdutoViewController: UIViewController {
         super.viewDidLoad()
         pickerView.dataSource = self
         pickerView.delegate = self
+        
         toolBarConfiguracao()
         carregaEstados()
+        
         txValor.keyboardType = UIKeyboardType.numberPad
+        
         if produto != nil {
             txNome.text = produto.nome
             ivFoto.image = produto.image as? UIImage
@@ -43,22 +46,20 @@ class RegistraAtualizaProdutoViewController: UIViewController {
             slCartao.setOn(produto.cartao, animated: true)
             btAddEdit.setTitle("Atualizar", for: .normal)
             txEstado.text = produto.states?.nome
-        //    estadoSelecionado = estado
             txValor.keyboardType = UIKeyboardType.numberPad
-            
         }
-       /* else{
+        else{
             produto = Product(context: context)
-
-        }*/
-        
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         carregaEstados()
         
-        
+        if estadoSelecionado == nil {
+            estadoSelecionado = produto.states
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -95,13 +96,10 @@ class RegistraAtualizaProdutoViewController: UIViewController {
         }
         alert.addAction(biblioteca)
         
-        
-        
         let cancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         alert.addAction(cancelar)
         
         present(alert, animated: true, completion: nil)
-        
     }
     
     func selecionaFoto(sourceType: UIImagePickerControllerSourceType){
@@ -130,7 +128,6 @@ class RegistraAtualizaProdutoViewController: UIViewController {
         estadoSelecionado = estado
         print(estado.imposto)
         cancel()
-        
     }
     
     @objc func cancel() {
@@ -138,30 +135,26 @@ class RegistraAtualizaProdutoViewController: UIViewController {
     }
     
     @IBAction func addEditProduto(_ sender: UIButton) {
-            print("TESTE")
-        print(estadoSelecionado)
-       
-    
+
+        guard let txtNome = txNome.text else {return}
+        guard let txDinheiro = txValor.text else {return}
+        guard let txEstado = txEstado.text else {return}
+        
+        let imagem = ivFoto.image
+        let dinheiro = Double(txDinheiro) ?? 0
+        
+        
+        
+        if txtNome != "" && txDinheiro != "" && txEstado != "" {
             
-            guard let txtNome = txNome.text else {return}
-            guard let txDinheiro = txValor.text else {return}
             let impostaEstadoSelecionado = estadoSelecionado.imposto
-            let imagem = ivFoto.image
-            let dinheiro = Double(txDinheiro) ?? 0
-            
             let acrescimoComCartao = (dinheiro * ud.double(forKey: "iof"))/100
             let acrescimoComImpostoEstado = (dinheiro * impostaEstadoSelecionado)/100
             
-            print("VALORES")
-            print(acrescimoComCartao)
-            print(acrescimoComImpostoEstado)
-            
-            //        if txtNome != "" && txDinheiro != "" && txEstado != ""{
             produto.nome = txtNome
             produto.image = imagem
             produto.states = estadoSelecionado
             produto.cartao = slCartao.isOn
-            
             
             if slCartao.isOn {
                 
@@ -178,17 +171,13 @@ class RegistraAtualizaProdutoViewController: UIViewController {
                 print(error.localizedDescription)
             }
             
-        
-        
-      
-        
-        //        }else{
-        //            lbError.text = "Todos os campos são obrigatórios"
-        
-        //        }
-        
-        
+        }else{
+            lbError.text = "Todos os campos são obrigatórios"
+            lbError.textAlignment = .center
+            
+        }
     }
+    
     
 }
 
