@@ -126,7 +126,6 @@ class RegistraAtualizaProdutoViewController: UIViewController {
         let estado = listaEstados[pickerView.selectedRow(inComponent: 0)]
         txEstado.text = estado.nome
         estadoSelecionado = estado
-        print(estado.imposto)
         cancel()
     }
     
