@@ -98,7 +98,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total em U$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vvy-iz-EZV">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total em U$:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vvy-iz-EZV">
                                 <rect key="frame" x="24" y="50" width="327" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="LoZ-w3-flZ"/>
@@ -116,7 +116,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total em R$" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i98-dg-Kcp">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total em R$:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i98-dg-Kcp">
                                 <rect key="frame" x="24" y="210" width="327" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Dc0-C9-7bw"/>
@@ -152,7 +152,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VYs-ob-8bS"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Total de compras" id="KvB-RL-2mh"/>
+                    <tabBarItem key="tabBarItem" title="Total de compras" image="bag" id="KvB-RL-2mh"/>
                     <connections>
                         <outlet property="lbTotalDolar" destination="Vvy-iz-EZV" id="jnr-aO-tjU"/>
                         <outlet property="lbTotalReal" destination="i98-dg-Kcp" id="X96-WU-Ufh"/>
@@ -287,7 +287,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="F4O-3v-wxR"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Ajustes" id="WIq-GV-z97"/>
+                    <tabBarItem key="tabBarItem" title="Ajustes" image="gear" id="WIq-GV-z97"/>
                     <connections>
                         <outlet property="tbEstado" destination="fZL-al-9JA" id="ykt-RE-AAk"/>
                         <outlet property="txDolar" destination="t61-ag-1xw" id="MHl-w6-T9s"/>
@@ -470,7 +470,7 @@
         <scene sceneID="Ldp-CY-8yy">
             <objects>
                 <navigationController id="Zkb-ZG-o4l" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Compras" id="30Y-Px-SZS"/>
+                    <tabBarItem key="tabBarItem" title="Compras" image="bag" id="30Y-Px-SZS"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="E3m-79-CZU">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -588,6 +588,10 @@
             <point key="canvasLocation" x="-1644" y="123.68815592203899"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bag" width="32" height="32"/>
+        <image name="gear" width="32" height="32"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="AEm-qg-3IX"/>
         <segue reference="TVa-NV-6zu"/>

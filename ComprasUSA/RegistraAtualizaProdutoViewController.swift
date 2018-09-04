@@ -139,12 +139,10 @@ class RegistraAtualizaProdutoViewController: UIViewController {
         guard let txtNome = txNome.text else {return}
         guard let txDinheiro = txValor.text else {return}
         guard let txEstado = txEstado.text else {return}
-        
         let imagem = ivFoto.image
+        
         let dinheiro = Double(txDinheiro) ?? 0
-        
-        
-        
+
         if txtNome != "" && txDinheiro != "" && txEstado != "" {
             
             let impostaEstadoSelecionado = estadoSelecionado.imposto
@@ -174,6 +172,7 @@ class RegistraAtualizaProdutoViewController: UIViewController {
         }else{
             lbError.text = "Todos os campos são obrigatórios"
             lbError.textAlignment = .center
+            lbError.textColor = UIColor.red
             
         }
     }
@@ -196,7 +195,6 @@ extension RegistraAtualizaProdutoViewController: UIImagePickerControllerDelegate
             }
             UIGraphicsBeginImageContext(tamanhoMinimo)
             image.draw(in: CGRect(x: 0, y: 0, width: tamanhoMinimo.width, height: tamanhoMinimo.height))
-            ivFoto.image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
         }
         dismiss(animated: true, completion: nil)
