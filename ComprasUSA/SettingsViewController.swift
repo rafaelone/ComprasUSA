@@ -118,6 +118,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         alert.addTextField { (textField) in
             textField.placeholder = "Imposto"
             textField.text = estado?.imposto.description
+            textField.keyboardType = UIKeyboardType.numberPad
+
         }
         let cancelar = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
         alert.addAction(confirmar)

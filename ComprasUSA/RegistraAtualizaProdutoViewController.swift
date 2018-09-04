@@ -125,6 +125,7 @@ class RegistraAtualizaProdutoViewController: UIViewController {
     @objc func done() {
         let estado = listaEstados[pickerView.selectedRow(inComponent: 0)]
         txEstado.text = estado.nome
+        txEstado.keyboardType = UIKeyboardType.asciiCapable
         estadoSelecionado = estado
         cancel()
     }
