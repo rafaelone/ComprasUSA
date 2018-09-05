@@ -454,6 +454,7 @@
                     <navigationItem key="navigationItem" title="Cadastrar produto" id="xl2-J4-yi3"/>
                     <connections>
                         <outlet property="btAddEdit" destination="9Xz-2u-iHi" id="iDo-gR-5fJ"/>
+                        <outlet property="btFoto" destination="2s2-lT-e1c" id="MMu-Py-nqt"/>
                         <outlet property="ivFoto" destination="Xxc-8w-NAx" id="WUN-gm-gFK"/>
                         <outlet property="lbError" destination="O0q-nu-tU5" id="RsE-tG-Cua"/>
                         <outlet property="slCartao" destination="x4b-90-YXs" id="43M-hk-m6N"/>

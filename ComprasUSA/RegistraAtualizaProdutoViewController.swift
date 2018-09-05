@@ -19,6 +19,7 @@ class RegistraAtualizaProdutoViewController: UIViewController {
     @IBOutlet weak var slCartao: UISwitch!
     @IBOutlet weak var btAddEdit: UIButton!
     @IBOutlet weak var lbError: UILabel!
+    @IBOutlet weak var btFoto: UIButton!
     
     let pickerView = UIPickerView(frame: .zero)
     let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 320, height: 44))
@@ -47,19 +48,22 @@ class RegistraAtualizaProdutoViewController: UIViewController {
             btAddEdit.setTitle("Atualizar", for: .normal)
             txEstado.text = produto.states?.nome
             txValor.keyboardType = UIKeyboardType.numberPad
+            navigationItem.title = "Atualizar Produto"
+            estadoSelecionado = produto.states
         }
-        else{
-            produto = Product(context: context)
-        }
+//        if estadoSelecionado == nil {
+//            estadoSelecionado = produto.states
+//        }
+//        else{
+//            produto = Product(context: context)
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         carregaEstados()
         
-        if estadoSelecionado == nil {
-            estadoSelecionado = produto.states
-        }
+       
     }
     
     override func didReceiveMemoryWarning() {
@@ -135,19 +139,38 @@ class RegistraAtualizaProdutoViewController: UIViewController {
     }
     
     @IBAction func addEditProduto(_ sender: UIButton) {
-
-        guard let txtNome = txNome.text else {return}
-        guard let txDinheiro = txValor.text else {return}
-        guard let txEstado = txEstado.text else {return}
-        let imagem = ivFoto.image
         
-        let dinheiro = Double(txDinheiro) ?? 0
+        if produto == nil {
+              produto = Product(context: context)
+        }
+      
 
-        if txtNome != "" && txDinheiro != "" && txEstado != "" {
-            
-            let impostaEstadoSelecionado = estadoSelecionado.imposto
+        lbError.textAlignment = .center
+        lbError.textColor = UIColor.red
+        
+        guard let txtNome = txNome.text, !txtNome.isEmpty else {
+            lbError.text = "Digite um nome para o produto"
+            return}
+        
+        guard let imagem = ivFoto.image, imagem.size != CGSize(width: 0, height: 0) else {
+            lbError.text = "Selecione uma imagem"
+            return
+        }
+        
+        guard let impostoSelecionado = estadoSelecionado else {
+            lbError.text = "Selecione um estado"
+            return
+        }
+        
+        guard let txtDinheiro = txValor.text, !txtDinheiro.isEmpty  else {
+            lbError.text = "Informe o valor do produto"
+            return}
+        
+        let dinheiro = Double(txtDinheiro) ?? 0
+      
+        
             let acrescimoComCartao = (dinheiro * ud.double(forKey: "iof"))/100
-            let acrescimoComImpostoEstado = (dinheiro * impostaEstadoSelecionado)/100
+            let acrescimoComImpostoEstado = (dinheiro * impostoSelecionado.imposto)/100
             
             produto.nome = txtNome
             produto.image = imagem
@@ -168,14 +191,10 @@ class RegistraAtualizaProdutoViewController: UIViewController {
             }catch{
                 print(error.localizedDescription)
             }
-            
-        }else{
-            lbError.text = "Todos os campos são obrigatórios"
-            lbError.textAlignment = .center
-            lbError.textColor = UIColor.red
+        
             
         }
-    }
+    
     
     
 }
@@ -195,7 +214,9 @@ extension RegistraAtualizaProdutoViewController: UIImagePickerControllerDelegate
             }
             UIGraphicsBeginImageContext(tamanhoMinimo)
             image.draw(in: CGRect(x: 0, y: 0, width: tamanhoMinimo.width, height: tamanhoMinimo.height))
+            ivFoto.image = UIGraphicsGetImageFromCurrentImageContext()
             UIGraphicsEndImageContext()
+            btFoto.titleLabel?.layer.opacity = 0.0
         }
         dismiss(animated: true, completion: nil)
     }
