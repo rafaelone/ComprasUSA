@@ -24,7 +24,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     let label: UILabel = {
         let label = UILabel()
-        label.text = "Lista de estados vazia."
+        label.text = "Lista de estados vazia!"
         label.textAlignment = .center
         label.textColor = UIColor.gray
         return label
@@ -95,6 +95,8 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
     }
     
+ 
+    
     func showAlert(estado: State?){
         let title = estado == nil ? "Adicionar Estado" : "Atualizar Estado"
         let alert = UIAlertController(title: title, message: "", preferredStyle: .alert)
@@ -164,9 +166,16 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
                 print(error.localizedDescription)
             }
         }
+        
+        let editar = UITableViewRowAction(style: .default, title: "Editar") { (action, indexPath) in
+            let estado = self.listaEstados[indexPath.row]
+            self.showAlert(estado: estado)
+            tableView.setEditing(false, animated: true)
+        }
+        editar.backgroundColor = .blue
      
 
-        return [deleta]
+        return [deleta, editar]
     }
 
 }

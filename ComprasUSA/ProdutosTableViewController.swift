@@ -15,7 +15,7 @@ class ProdutosTableViewController: UITableViewController {
     
     let label: UILabel = {
         let label = UILabel()
-        label.text = "Sua lista está vazia"
+        label.text = "Sua lista está vazia!"
         label.textAlignment = .center
         label.textColor = UIColor.gray
         return label
