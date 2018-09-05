@@ -51,12 +51,7 @@ class RegistraAtualizaProdutoViewController: UIViewController {
             navigationItem.title = "Atualizar Produto"
             estadoSelecionado = produto.states
         }
-//        if estadoSelecionado == nil {
-//            estadoSelecionado = produto.states
-//        }
-//        else{
-//            produto = Product(context: context)
-//        }
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
