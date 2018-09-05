@@ -44,9 +44,9 @@ class TotalViewController: UIViewController {
     func somaValores(){
         let valoresProdutos = listaProduto.map{$0.money}
         let somaValoresDolar = valoresProdutos.reduce(0, {$0 + $1})
-        lbValorDolar.text = String(format:"%.1f", somaValoresDolar)
+        lbValorDolar.text = String(format:"%.2f", somaValoresDolar)
         lbValorDolar.textColor = UIColor.red
-        lbValorReal.text = String(format:"%.1f", somaValoresDolar * ud.double(forKey: "dolar"))
+        lbValorReal.text = String(format:"%.2f", somaValoresDolar * ud.double(forKey: "dolar"))
         lbValorReal.textColor = UIColor.green
     }
     

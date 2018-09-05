@@ -28,7 +28,8 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         ivProduto.image = produto.image as? UIImage
         lbNomeProduto.text = produto.nome
-        lbValorProduto.text = "\(produto.money)"
+        lbValorProduto.text = String(format: "%.2f", produto.money)
+        print(lbValorProduto)
         lbEstadoProduto.text = produto.states?.nome
         
         if produto.cartao == false {

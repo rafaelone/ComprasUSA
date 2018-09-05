@@ -73,9 +73,7 @@ class ProdutosTableViewController: UITableViewController {
         let produto = fetchedResultController.object(at: indexPath)
         cell.lbTitle.text = produto.nome
         cell.ivProduto.image = produto.image as? UIImage
-        cell.lbPreco.text = "U$ \(produto.money)"
-        
-        print(cell.lbPreco)
+        cell.lbPreco.text = String(format: "%.2f", produto.money)
         
         return cell
         
