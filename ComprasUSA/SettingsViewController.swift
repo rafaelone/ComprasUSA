@@ -19,7 +19,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     var listaEstados:[State] = []
      let numberFormatter = NumberFormatter()
     let ud = UserDefaults.standard
-    let valorDolar = 4.06
+    let valorDolar = 3.90
     let valorIof = 6.38
     
     let label: UILabel = {
@@ -108,10 +108,13 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
             let estado = estado ?? State(context: self.context)
             estado.nome = nomeEstado
             estado.imposto = impostoEstado ?? 0
-            do{
-                try self.context.save()
-                self.carregaEstados()
-            }catch{print(error.localizedDescription)}
+            if(estado.nome != "" && estado.imposto > 0){
+                do{
+                    try self.context.save()
+                    self.carregaEstados()
+                }catch{print(error.localizedDescription)}
+            }
+         
         }
         alert.addTextField { (textField) in
             textField.placeholder = "Nome do estado"

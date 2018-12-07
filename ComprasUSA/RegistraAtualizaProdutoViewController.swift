@@ -29,12 +29,12 @@ class RegistraAtualizaProdutoViewController: UIViewController {
     var fetchedResultController: NSFetchedResultsController<State>!
     let ud = UserDefaults.standard
     var estadoSelecionado: State!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         pickerView.dataSource = self
         pickerView.delegate = self
-        
         toolBarConfiguracao()
         carregaEstados()
         
@@ -43,22 +43,23 @@ class RegistraAtualizaProdutoViewController: UIViewController {
         if produto != nil {
             txNome.text = produto.nome
             ivFoto.image = produto.image as? UIImage
-            txValor.text = "\(produto.money)"
+            txValor.text = String(format: "%.2f", produto.money)
             slCartao.setOn(produto.cartao, animated: true)
             btAddEdit.setTitle("Atualizar", for: .normal)
             txEstado.text = produto.states?.nome
             txValor.keyboardType = UIKeyboardType.numberPad
             navigationItem.title = "Atualizar Produto"
             estadoSelecionado = produto.states
+        
         }
-
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         carregaEstados()
         
-       
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -135,11 +136,11 @@ class RegistraAtualizaProdutoViewController: UIViewController {
     
     @IBAction func addEditProduto(_ sender: UIButton) {
         
-        if produto == nil {
-              produto = Product(context: context)
-        }
-      
-
+//        produto = Product(context: context)
+//
+//
+        let initialImagem: UIImage! = UIImage(named: "presente")
+        
         lbError.textAlignment = .center
         lbError.textColor = UIColor.red
         
@@ -161,37 +162,45 @@ class RegistraAtualizaProdutoViewController: UIViewController {
             lbError.text = "Informe o valor do produto"
             return}
         
-        let dinheiro = Double(txtDinheiro) ?? 0
-      
+        if imagem.isEqual(initialImagem){
+            lbError.text = "Selecione uma imagem"
+            return
+        }
         
-            let acrescimoComCartao = (dinheiro * ud.double(forKey: "iof"))/100
-            let acrescimoComImpostoEstado = (dinheiro * impostoSelecionado.imposto)/100
+        let dinheiro = Double(txtDinheiro) ?? 0
+        
+        
+        let acrescimoComCartao = (dinheiro * ud.double(forKey: "iof"))/100
+        let acrescimoComImpostoEstado = (dinheiro * impostoSelecionado.imposto)/100
+        
+       
+        
+        if produto == nil {
+            produto = Product(context: context)
+        }
+        
+        produto.nome = txtNome
+        produto.image = imagem
+        produto.states = estadoSelecionado
+        produto.cartao = slCartao.isOn
+        
+        
+        if slCartao.isOn {
             
-            produto.nome = txtNome
-            produto.image = imagem
-            produto.states = estadoSelecionado
-            produto.cartao = slCartao.isOn
-            
-            if slCartao.isOn {
-                
-                produto.money = dinheiro + acrescimoComCartao + acrescimoComImpostoEstado
-            }else{
-                produto.money = dinheiro + acrescimoComImpostoEstado
-            }
-            
+            produto.money = dinheiro + acrescimoComCartao + acrescimoComImpostoEstado
+        }else{
+            produto.money = dinheiro + acrescimoComImpostoEstado
+        }
+        
             do{
                 try context.save()
-                
+
                 navigationController?.popViewController(animated: true)
             }catch{
                 print(error.localizedDescription)
             }
-        
-            
-        }
-    
-    
-    
+    }
+
 }
 
 
@@ -241,3 +250,4 @@ extension RegistraAtualizaProdutoViewController: UIPickerViewDelegate {
         return listaEstados[row].nome
     }
 }
+

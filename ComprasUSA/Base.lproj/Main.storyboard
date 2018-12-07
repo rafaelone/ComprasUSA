@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gUJ-y2-vuo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gUJ-y2-vuo">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Lista de compras-->
+        <!--Lista de Compras-->
         <scene sceneID="cud-rS-UPR">
             <objects>
                 <tableViewController id="EbM-Is-S23" customClass="ProdutosTableViewController" customModule="ComprasUSA" customModuleProvider="target" sceneMemberID="viewController">
@@ -77,7 +77,7 @@
                             <outlet property="delegate" destination="EbM-Is-S23" id="PfC-q2-cXJ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Lista de compras" id="4Kw-K4-2Qi">
+                    <navigationItem key="navigationItem" title="Lista de Compras" id="4Kw-K4-2Qi">
                         <barButtonItem key="backBarButtonItem" title="Back" id="8He-3n-Crj"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="PzE-Vt-dds">
                             <connections>
@@ -173,7 +173,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cotação do dólar" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tKJ-eJ-gJJ">
-                                <rect key="frame" x="24" y="124" width="132" height="21"/>
+                                <rect key="frame" x="24" y="124" width="132" height="20"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -253,7 +253,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I.O.F (%)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RfG-cJ-dve">
-                                <rect key="frame" x="24" y="174" width="64.5" height="21"/>
+                                <rect key="frame" x="24" y="173" width="64.5" height="22"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -342,7 +342,7 @@
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x4b-90-YXs">
                                                 <rect key="frame" x="302" y="254" width="51" height="31"/>
                                             </switch>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Xxc-8w-NAx">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="presente" translatesAutoresizingMaskIntoConstraints="NO" id="Xxc-8w-NAx">
                                                 <rect key="frame" x="24" y="64" width="327" height="120"/>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0q-nu-tU5">
@@ -367,12 +367,14 @@
                                                     <action selector="addEditProduto:" destination="krg-6e-Z8H" eventType="touchUpInside" id="lYl-rc-Y6f"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2s2-lT-e1c">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2s2-lT-e1c">
                                                 <rect key="frame" x="24" y="64" width="327" height="120"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="120" id="7A5-rv-DqE"/>
                                                 </constraints>
-                                                <state key="normal" title="adicionar foto"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" red="0.13867809522954139" green="0.10243385272267058" blue="0.77527930699481862" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="addFoto:" destination="krg-6e-Z8H" eventType="touchUpInside" id="2pG-Y2-Oin"/>
                                                 </connections>
@@ -590,11 +592,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bag" width="32" height="32"/>
-        <image name="gear" width="32" height="32"/>
+        <image name="bag" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="gear" width="25.600000381469727" height="25.600000381469727"/>
+        <image name="presente" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="AEm-qg-3IX"/>
+        <segue reference="cRm-4P-e7c"/>
         <segue reference="1kX-iB-H4J"/>
     </inferredMetricsTieBreakers>
 </document>
