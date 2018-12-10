@@ -14,7 +14,7 @@
 			<key>Key</key>
 			<string>dolar</string>
 			<key>DefaultValue</key>
-			<string>3.90</string>
+			<string>3.91</string>
 			<key>KeyboardType</key>
 			<string>NumbersAndPunctuation</string>
 		</dict>

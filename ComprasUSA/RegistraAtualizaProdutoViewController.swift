@@ -29,7 +29,7 @@ class RegistraAtualizaProdutoViewController: UIViewController {
     var fetchedResultController: NSFetchedResultsController<State>!
     let ud = UserDefaults.standard
     var estadoSelecionado: State!
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +50,7 @@ class RegistraAtualizaProdutoViewController: UIViewController {
             txValor.keyboardType = UIKeyboardType.numberPad
             navigationItem.title = "Atualizar Produto"
             estadoSelecionado = produto.states
-        
+            
         }
         
     }
@@ -123,11 +123,16 @@ class RegistraAtualizaProdutoViewController: UIViewController {
         txEstado.inputAccessoryView = toolbar
     }
     @objc func done() {
-        let estado = listaEstados[pickerView.selectedRow(inComponent: 0)]
-        txEstado.text = estado.nome
-        txEstado.keyboardType = UIKeyboardType.asciiCapable
-        estadoSelecionado = estado
-        cancel()
+        
+        print("DONE: \(listaEstados)")
+        if listaEstados.count != 0 {
+            let estado = listaEstados[pickerView.selectedRow(inComponent: 0)]
+            txEstado.text = estado.nome
+            txEstado.keyboardType = UIKeyboardType.asciiCapable
+            estadoSelecionado = estado
+            
+            cancel()
+        }
     }
     
     @objc func cancel() {
@@ -136,9 +141,6 @@ class RegistraAtualizaProdutoViewController: UIViewController {
     
     @IBAction func addEditProduto(_ sender: UIButton) {
         
-//        produto = Product(context: context)
-//
-//
         let initialImagem: UIImage! = UIImage(named: "presente")
         
         lbError.textAlignment = .center
@@ -173,7 +175,7 @@ class RegistraAtualizaProdutoViewController: UIViewController {
         let acrescimoComCartao = (dinheiro * ud.double(forKey: "iof"))/100
         let acrescimoComImpostoEstado = (dinheiro * impostoSelecionado.imposto)/100
         
-       
+        
         
         if produto == nil {
             produto = Product(context: context)
@@ -192,15 +194,15 @@ class RegistraAtualizaProdutoViewController: UIViewController {
             produto.money = dinheiro + acrescimoComImpostoEstado
         }
         
-            do{
-                try context.save()
-
-                navigationController?.popViewController(animated: true)
-            }catch{
-                print(error.localizedDescription)
-            }
+        do{
+            try context.save()
+            
+            navigationController?.popViewController(animated: true)
+        }catch{
+            print(error.localizedDescription)
+        }
     }
-
+    
 }
 
 
@@ -250,4 +252,6 @@ extension RegistraAtualizaProdutoViewController: UIPickerViewDelegate {
         return listaEstados[row].nome
     }
 }
+
+
 

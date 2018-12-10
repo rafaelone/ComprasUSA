@@ -19,7 +19,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
     var listaEstados:[State] = []
      let numberFormatter = NumberFormatter()
     let ud = UserDefaults.standard
-    let valorDolar = 3.90
+    let valorDolar = 3.91
     let valorIof = 6.38
     
     let label: UILabel = {
@@ -64,6 +64,7 @@ class SettingsViewController: UIViewController, UITableViewDataSource, UITableVi
         }
       
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
